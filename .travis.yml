@@ -1,0 +1,57 @@
+language: php
+
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+
+env:
+  global:
+  - PGPORT=5433
+  - TRAVIS_NODE_VERSION="8"
+
+matrix:
+  fast_finish: true
+  include:
+    - php: "7.2"
+    - php: "7.3"
+
+notifications:
+  email: false
+
+cache:
+  npm: true
+  directories:
+    - $HOME/.composer/cache
+    - node_modules
+    - vendor
+
+services:
+  - redis-server
+
+before_install:
+  - phpenv config-rm xdebug.ini || true
+  - printf "\n" | pecl install -f redis
+  - travis_retry composer self-update
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo service postgresql restart
+  - sleep 1
+
+install:
+  - travis_retry composer install --no-interaction --optimize-autoloader --no-suggest
+  - travis_retry npm install --no-optional --no-package-lock
+  - travis_retry npm run production
+
+before_script:
+  - psql -U postgres -c "CREATE DATABASE testing"
+  - psql -U postgres -c "CREATE USER testing WITH CREATEDB CREATEROLE PASSWORD 'secret'"
+  - psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE testing to testing WITH GRANT OPTION"
+  - cp .env.testing .env
+
+script:
+  - php artisan key:generate
+  - php artisan migrate:fresh --seed
+  - php artisan config:cache
+  - ./vendor/bin/phpunit
