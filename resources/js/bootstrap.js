@@ -1,16 +1,13 @@
-window._ = require('lodash');
-
 /**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
+ * Register main modules.
  */
 
-window.Popper = require('popper.js').default;
+window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
-require('bootstrap');
 
-// Additional components are loaded here.
+/**
+ * Additional components are loaded here.
+ */
 
 window.Vue = require('vue');
 window.Swal = require('sweetalert2');
@@ -43,3 +40,36 @@ if (token) {
 //     cluster: process.env.PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/**
+ * Disable form autocomplete.
+ */
+let form = document.querySelector('.form-nofill')[0];
+if (typeof (form) != 'undefined' && form != null) {
+    form.setAttribute('autocomplete', 'off');
+}
+
+/**
+ * This is method for switching sidebar.
+ * Set status sidebar, collapsed or expanded?
+ */
+let sidebar = document.getElementById('sidebar');
+
+if (typeof (sidebar) != 'undefined' && sidebar != null) {
+
+    // This is for sidebar toggle.
+    var sidebarButton = document.getElementById('sidebarCollapse');
+    if (Boolean(sessionStorage.getItem('sidebarCollapse'))) {
+        sidebar.classList.toggle('hidden');
+    }
+    sidebarButton.addEventListener('click',function(event){
+        event.preventDefault();
+        document.getElementById('sidebar').classList.toggle('hidden');
+        if (Boolean(sessionStorage.getItem('sidebarCollapse'))) {
+            sessionStorage.setItem('sidebarCollapse', '');
+        } else {
+            sessionStorage.setItem('sidebarCollapse', '1');
+        }
+    });
+
+}

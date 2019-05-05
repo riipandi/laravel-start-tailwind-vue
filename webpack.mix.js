@@ -1,4 +1,5 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix');
+let tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,8 +13,11 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .less('resources/less/app.less', 'public/css')
+   .options({
+       postCss:[ tailwindcss('./tailwind.config.js') ],
+    });
 
 if (mix.inProduction()) {
-    mix.webpackConfig({ mode: 'production' })
+   mix.webpackConfig({ mode: 'production' })
 }

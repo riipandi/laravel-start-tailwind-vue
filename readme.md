@@ -1,4 +1,4 @@
-# Laravel Standard Scaffolding
+# Laravel TailwindCSS Scaffolding
 
 [![Build Status](https://travis-ci.org/presethub/laravel-tailwind.svg?branch=master)](https://travis-ci.org/presethub/laravel-tailwind)
 [![StyleCI Status](https://github.styleci.io/repos/184733568/shield?branch=master)](https://github.styleci.io/repos/184733568)
@@ -8,10 +8,10 @@
 
 ## What's in the box?
 
-- Standard Laravel 5.8 preset.
-- Tailwind 0.7.4 + jQuery 3.4.1 + Vue 2.6.10.
-- UUID primary key for User model.
-- Authentication using email or username.
+- Laravel 5.8 setup:
+  - UUID primary key for User model.
+  - Authentication using email or username.
+- Tailwind 0.7.4 + FontAwesome 5.8.1 + Vue 2.6.10.
 - SweelAlert2 by [Rashid Ali](https://github.com/realrashid/sweet-alert).
 
 ## Quick Start
