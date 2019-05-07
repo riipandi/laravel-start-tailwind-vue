@@ -9,53 +9,70 @@
     <link href="//fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="bg-grey-lightest h-screen font-sans antialiased">
+    <div id="app" class="wrapper">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto"></ul>
+        <div id="content">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Halo, {{ Auth::user()->first_name }} <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="javascript:;">{{ __('Account') }}</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">{{ __('Logout') }}</a>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+            <header id="navbar" class="inline-flex flex-row bg-white border-t-2 align-middle">
+                <div class="flex-1 text-grey-darker align-middle">
+                    <div class="inline-block py-1">
+                        <div class="flex">
+                            <div class="pl-6">
+                                <button id="sidebarCollapse" class="inherit focus:outline-none -ml-3">
+                                    <i class="fas fa-align-left mr-1"></i>
+                                </button>
+                            </div>
+                            <div class="md:block ml-4 font-semibold">
+                                <span class="hidden md:inline-block">{{ config('app.name') }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
+                <div class="flex-1 text-grey-darker text-right align-middle pr-4">
+                    <div class="inline-block">
+                        <div class="flex">
+                            <div class="py-1">
+                                <a href="javascript:;" class="inline-block text-grey-dark hover:text-green mr-5" aria-label="You have 69 unread notifications" data-microtip-position="bottom-left" role="tooltip">
+                                    <i class="fas fa-fw fa-bell"></i>
+                                </a>
+                            </div>
+                            <div class="mr-2">
+                                <img class="w-6 h-6 rounded-full" src="//i.pravatar.cc/128" alt="User Avatar">
+                            </div>
+                            <button v-on:click="toggleClass('invisible', 'userDropdown')" class="drop-button text-grey-darker focus:outline-none font-semibold tracking-tight">
+                                Hola, {{ auth()->user()->first_name }}
+                                <svg class="h-3 fill-current opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </button>
+                            <div id="userDropdown" class="dropdown dropdown-user absolute pin-r mr-6 mt-10 py-2 rounded shadow-md invisible">
+                                <a class="py-2 px-4 hover:bg-blue-dark hover:text-white" href="javascript:;"><i class="fas fa-fw fa-user-circle mr-2"></i> Account</a>
+                                <div class="border border-grey-lightest b-1 my-2 mx-4"></div>
+                                <a class="py-2 px-4 hover:bg-blue-dark hover:text-white" href="{{ route('logout') }}">
+                                    <i class="fas fa-fw fa-sign-out-alt mr-2"></i>{{ __('Sign Out ') }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+            <main class="w-full mx-auto py-10 px-8">
+                {{-- @include('layouts.alert') --}}
+                @yield('content')
+            </main>
+
+            <footer id="footer" class="bg-white text-grey-darker">
+                <div class="block md:flex bg-white text-xs tracking-normal">
+                    <div class="flex-1 text-center md:text-left mb-0 sm:mb-2 md:mb-0">
+                        Copyright &copy; 2019 Your Company.
+                    </div>
+                    <div class="flex-1 text-center hidden sm:block md:text-right">
+                        {{ config('app.name') }} {{ App::VERSION() }}
+                    </div>
+                </div>
+            </footer>
+
+        </div>
     </div>
 
     <!-- Scripts -->

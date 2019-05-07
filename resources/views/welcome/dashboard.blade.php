@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    You are logged in!
+    <div class="flex items-center mb-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
+                <div class="flex items-center justify-between bg-grey-lighter text-grey-darkest py-2 px-6 mb-0 rounded-t">
+                    <div class="my-1 font-bold">
+                        <i class="fas fa-chalkboard mr-2"></i> Dashboard
+                    </div>
+                </div>
+                <div class="w-full p-6">
+                    <div>Welcome to your dashboard!</div>
+                    <div class="mt-4">
+                        <p>This is an example dashboard page!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

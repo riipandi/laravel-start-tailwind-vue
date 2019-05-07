@@ -42,34 +42,17 @@ if (token) {
 // });
 
 /**
- * Disable form autocomplete.
- */
-let form = document.querySelector('.form-nofill')[0];
-if (typeof (form) != 'undefined' && form != null) {
-    form.setAttribute('autocomplete', 'off');
-}
-
-/**
- * This is method for switching sidebar.
- * Set status sidebar, collapsed or expanded?
- */
-let sidebar = document.getElementById('sidebar');
-
-if (typeof (sidebar) != 'undefined' && sidebar != null) {
-
-    // This is for sidebar toggle.
-    var sidebarButton = document.getElementById('sidebarCollapse');
-    if (Boolean(sessionStorage.getItem('sidebarCollapse'))) {
-        sidebar.classList.toggle('hidden');
-    }
-    sidebarButton.addEventListener('click',function(event){
-        event.preventDefault();
-        document.getElementById('sidebar').classList.toggle('hidden');
-        if (Boolean(sessionStorage.getItem('sidebarCollapse'))) {
-            sessionStorage.setItem('sidebarCollapse', '');
-        } else {
-            sessionStorage.setItem('sidebarCollapse', '1');
+ * This method is for dropdown menu.
+ * Close the dropdown menu if the user clicks outside of it.
+*/
+window.onclick = function(event) {
+    if (!event.target.matches('.drop-button')) {
+        var dropdowns = document.getElementsByClassName("dropdown");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (!openDropdown.classList.contains('invisible')) {
+                openDropdown.classList.add('invisible');
+            }
         }
-    });
-
+    }
 }
