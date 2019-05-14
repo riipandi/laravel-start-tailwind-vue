@@ -1,8 +1,8 @@
 {
     "name": "presethub/laravel-tailwind",
     "type": "project",
-    "description": "The Laravel Framework basic scaffolding.",
-    "keywords": [ "framework", "laravel", "boilerplate", "preset" ],
+    "description": "The Laravel Framework with TailwindCSS scaffolding.",
+    "keywords": [ "framework", "laravel", "boilerplate", "preset", "tailwind"],
     "license": "MIT",
     "require": {
         "php": "^7.2.1",
