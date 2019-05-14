@@ -11,7 +11,7 @@
 - Laravel 5.8 setup:
   - UUID primary key for User model.
   - Authentication using email or username.
-- Tailwind 0.7.4 + FontAwesome 5.8.1 + Vue 2.6.10.
+- Tailwind 1.0 + FontAwesome 5.8 + Vue 2.6.10.
 - SweelAlert2 by [Rashid Ali](https://github.com/realrashid/sweet-alert).
 
 ## Quick Start
@@ -34,7 +34,6 @@ composer create-project presethub/laravel-tailwind <app_name> <version>
 
 Change `<app_name>` with your own and `<version>` with release version.
 See [release page][releasepage] for the version number.
-
 
 #### Package Version
 

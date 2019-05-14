@@ -11,7 +11,7 @@
     transition: background-color 0.2s ease-in;
 }
 .form-switch-label:before {
-    @apply absolute block bg-white pin-y w-6 border rounded-full -ml-1;
+    @apply absolute block bg-white inset-y-0 w-6 border rounded-full -ml-1;
     right: 50%;
     content: "";
     transition: all 0.2s ease-in;
@@ -21,17 +21,17 @@
 
 }
 .form-switch-checkbox:checked + .form-switch-label {
-    @apply bg-green shadow-none;
+    @apply bg-green-400 shadow-none;
 }
 .form-switch-checkbox:checked + .form-switch-label:before {
-    @apply pin-r;
+    @apply .right-0;
 }
 
 /* ---------------------------------------------------
     DIVIDER WITH TEXT
 ----------------------------------------------------- */
 .hr-text {
-    @apply .relative .outline-none .text-grey-darker .text-center .leading-tight .opacity-50;
+    @apply .relative .outline-none .text-gray-600 .text-center .leading-tight .opacity-50;
 }
 
 .hr-text::before {
@@ -46,14 +46,14 @@
 
 .hr-text::after {
     content: attr(data-content);
-    @apply .bg-white .relative .inline-block .text-grey .leading-tight .px-2;
+    @apply .bg-white .relative .inline-block .text-gray-300 .leading-tight .px-2;
 }
 
 /* ---------------------------------------------------
     HEADER NAVIGATION
 ----------------------------------------------------- */
 header .dropdown-user {
-    @apply .bg-blue .text-white .text-left;
+    @apply .bg-blue-300 .text-white .text-left;
     width: 170px;
 }
 
@@ -80,7 +80,7 @@ header #progress {
     SIDEBAR AND NAVBAR STYLE
 ----------------------------------------------------- */
 #navbar {
-    @apply w-full .sticky .pin-t .shadow .py-4 .bg-white border-blue;
+    @apply .w-full .sticky .top-0 .shadow .py-4 .bg-white .border-blue-500;
 }
 
 .wrapper {
@@ -97,7 +97,7 @@ main {
 }
 
 #sidebar {
-    @apply .bg-blue .text-sm .pb-6 .text-white;
+    @apply .bg-blue-500 .text-sm .pb-6 .text-white;
     min-width: 250px;
     max-width: 250px;
     transition: all 0.3s;
@@ -120,7 +120,7 @@ a:focus {
 }
 
 #sidebar .sidebar-header {
-    @apply .bg-blue-dark .py-5 .text-center;
+    @apply .bg-blue-600 .py-5 .text-center;
 }
 
 #sidebar ul li a {
@@ -129,11 +129,11 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    @apply .bg-white .text-blue;
+    @apply .bg-white .text-blue-500;
 }
 
 #sidebar ul li.active>a {
-    @apply .bg-blue-dark .text-white;
+    @apply .bg-blue-600 .text-white;
 }
 
 #sidebar .dropdown-toggle::after {
@@ -144,7 +144,7 @@ a:focus {
 }
 
 #sidebar ul ul a {
-    @apply .bg-blue-dark .text-white;
+    @apply .bg-blue-600 .text-white;
 }
 #sidebar ul ul li a:before {
     @apply .ml-4 .inline-block;
@@ -161,7 +161,7 @@ a:focus {
 }
 
 #sidebar ul ul a:hover {
-    @apply .bg-blue-darker .text-white;
+    @apply .bg-blue-700 .text-white;
 }
 
 #sidebar ul.CTAs {
@@ -177,7 +177,7 @@ a:focus {
     FORM STYLING
 ----------------------------------------------------- */
 .form-control input {
-    @apply .bg-grey-lighter .appearance-none .border .border-grey-lighter .rounded .w-full .py-3 .px-4 .text-grey-darker .leading-tight .appearance-none;
+    @apply .bg-gray-200 .appearance-none .border .border-gray-400 .rounded .w-full .py-3 .px-4 .text-gray-600 .leading-tight .appearance-none;
 }
 
 .action-link {
@@ -195,9 +195,9 @@ a:focus {
 }
 
 #footer a {
-    @apply .no-underline .text-grey-dark;
+    @apply .no-underline .text-gray-400;
 }
 
 #footer a:hover {
-    @apply .text-blue;
+    @apply .text-blue-500;
 }

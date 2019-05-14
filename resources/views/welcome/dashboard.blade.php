@@ -4,7 +4,7 @@
     <div class="flex items-center mb-6">
         <div class="container mx-auto">
             <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
-                <div class="flex items-center justify-between bg-grey-lighter text-grey-darkest py-2 px-6 mb-0 rounded-t">
+                <div class="flex items-center justify-between bg-gray-200 text-gray-800 py-2 px-6 mb-0 rounded-t">
                     <div class="my-1 font-bold">
                         <i class="fas fa-chalkboard mr-2"></i> Dashboard
                     </div>

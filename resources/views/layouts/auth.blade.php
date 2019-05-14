@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}</title>
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="//fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-blue h-screen font-sans antialiased">
+<body class="bg-blue-500 h-screen font-sans antialiased">
     <div id="app" class="container mx-auto p-4 h-full flex justify-center items-center">
         @yield('content')
     </div>

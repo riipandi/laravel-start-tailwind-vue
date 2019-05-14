@@ -4,12 +4,12 @@
 
 window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
+window.Vue = require('vue');
 
 /**
  * Additional components are loaded here.
  */
 
-window.Vue = require('vue');
 window.Swal = require('sweetalert2');
 
 /**
