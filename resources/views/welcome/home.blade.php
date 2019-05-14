@@ -25,7 +25,7 @@
         <div class="min-h-screen flex items-center justify-center">
             <div class="flex flex-col justify-around h-full">
                 <div>
-                    <h1 class="text-gray-700 text-center font-400 tracking-wider text-5xl mb-12">
+                    <h1 class="text-gray-700 text-center font-light tracking-wider text-5xl mb-12">
                         {{ config('app.name') }}
                     </h1>
                     <ul class="list-none p-0">
