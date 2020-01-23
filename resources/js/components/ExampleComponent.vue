@@ -1,14 +1,10 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
+    <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
+        <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">Dashboard</div>
+        <div class="w-full p-6">
+            <p class="text-gray-700">
+                You are logged in!
+            </p>
         </div>
     </div>
 </template>

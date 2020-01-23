@@ -8,19 +8,15 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name')->index();
-            $table->enum('gender', ['Male', 'Female']);
-            $table->string('username', 40)->unique()->index();
+            $table->bigIncrements('id');
+            $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
@@ -29,8 +25,6 @@ class CreateUsersTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

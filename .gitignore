@@ -8,6 +8,7 @@
 
 # Default assets
 /public/mix-manifest.json
+/public/images
 /public/fonts
 /public/css
 /public/img
@@ -21,6 +22,8 @@ yarn-error.log
 *.sqlite
 .env
 
+# Lock files
 composer.lock
 package-lock.json
+pnpm-lock.yaml
 yarn.lock

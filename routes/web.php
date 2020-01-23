@@ -1,12 +1,20 @@
 <?php
 
-Route::get('/')->name('home')->uses('WelcomeController@home')->middleware('guest');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-Auth::routes([
-    'register' => config('auth.enable_registration'),
-    'reset'    => config('auth.enable_reset_pass'),
-    'verify'   => true,
-]);
-Route::get('logout')->name('logout')->uses('Auth\LoginController@logout');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('dashboard')->name('dashboard')->uses('WelcomeController@dashboard')->middleware(['auth', 'verified']);
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

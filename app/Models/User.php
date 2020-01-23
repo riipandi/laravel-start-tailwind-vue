@@ -2,52 +2,41 @@
 
 namespace App\Models;
 
-use App\Traits\UuidAsPrimary;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
-    use UuidAsPrimary;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'name', 'gender', 'username', 'email', 'password',
+        'name', 'email', 'username', 'password',
     ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     protected $casts = [
-        'gender'            => 'enum',
         'email_verified_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
-
-    /**
-     * Encrypt password fields.
-     *
-     * @return string
-     */
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = Hash::make($password);
-    }
-
-    /**
-     * Get user first name.
-     *
-     * @return string
-     */
-    public function getFirstNameAttribute()
-    {
-        $parser = new \TheIconic\NameParser\Parser();
-        $name = $parser->parse($this->name);
-
-        return $name->getFirstname();
-    }
 }
