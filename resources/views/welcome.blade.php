@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name') }}</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito:300,400,500,600,700&display=swap">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
 <div class="flex flex-col">
     @if(Route::has('login'))
-        <div class="absolute top-0 right-0 mt-4 mr-4">
+        <div class="absolute top-0 right-0 mt-6 mr-12">
             @auth
-                <a href="{{ route('dashboard') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
+                <a href="{{ url('/dashboard') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Dashboard') }}</a>
             @else
                 <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase pr-6">{{ __('Login') }}</a>
                 @if (Route::has('register'))
@@ -27,8 +28,8 @@
     <div class="min-h-screen flex items-center justify-center">
         <div class="flex flex-col justify-around h-full">
             <div>
-                <h1 class="text-gray-600 text-center font-light tracking-wider text-5xl mb-10">
-                    {{ config('app.name') }}
+                <h1 class="text-gray-600 text-center font-light tracking-wider text-5xl mb-12">
+                    {{ config('app.name', 'Laravel') }}
                 </h1>
                 <ul class="list-reset">
                     <li class="inline pr-8">

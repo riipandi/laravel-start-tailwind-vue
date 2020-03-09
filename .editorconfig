@@ -9,7 +9,7 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
 
-[*.{js,vue,blade.php}]
+[*.{js,jsx,ts,tsx,css,scss,vue,yml}]
 indent_size = 2
 
 [*.md]

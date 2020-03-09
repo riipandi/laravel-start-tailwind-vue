@@ -3,13 +3,12 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
     fontFamily: {
-      sans: [
-        'Nunito',
-        ...defaultTheme.fontFamily.sans
-      ]
+      sans: [ 'Nunito', ...defaultTheme.fontFamily.sans ],
     },
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/custom-forms')
+  ],
 }

@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public const DASHBOARD = '/dashboard';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -31,6 +31,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
         parent::boot();
     }
 

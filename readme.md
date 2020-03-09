@@ -28,7 +28,7 @@ npm run development
 
 ## License
 
-This project licensed under the terms of [Apache License 2.0][choosealicense].
+This project licensed under the terms of [MIT License][choosealicense].
 Please see [license file](./license.txt) for more information.
 
-[choosealicense]:https://choosealicense.com/licenses/apache-2.0/
+[choosealicense]:https://choosealicense.com/licenses/mit/
