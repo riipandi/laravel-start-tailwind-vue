@@ -7,9 +7,13 @@
 /vendor
 
 # Default assets
+/public/demo.html
 /public/mix-manifest.json
+/public/sitemap*.xml
+/public/sitemap
 /public/images
 /public/fonts
+/public/icons
 /public/css
 /public/img
 /public/js
@@ -19,6 +23,10 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+Thumbs.db
+.DS_Store
+.DS_Store?
+.Trashes
 *.sqlite
 .env
 
