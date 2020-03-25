@@ -15,7 +15,7 @@ Edit or create `.env` file and then execute:
 
 ```sh
 # Composer dependencies
-composer install
+composer install --no-suggest
 php artisan key:generate
 php artisan migrate:fresh --seed
 
